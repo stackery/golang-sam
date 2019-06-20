@@ -1,5 +1,7 @@
-main: main.go
-    GOOS=linux GOARCH=amd64 go build -o main main.go
+all: deps build
 
-install:
-    go get github.com/aws/aws-lambda-go/lambda
+deps:
+	go get main
+
+build:
+	GOOS=linux GOARCH=amd64 go build -o main main
