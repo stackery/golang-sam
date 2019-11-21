@@ -1,7 +1,7 @@
-all: deps build
+.PHONY: build
 
-deps:
-	go get main
+all: build
 
 build:
-	GOOS=linux GOARCH=amd64 go build -o main main
+	GOOS=linux GOARCH=amd64 go build -o main
+  

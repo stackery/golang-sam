@@ -1,8 +1,11 @@
 #!/bin/sh
 
-echo --------------------------------------------------  got here in stackery-build.sh
-
+set -e
 mkdir -p .aws-sam/build/src/
-( cd src/Function && make ) 
+
 cp .stackery/template.yaml .aws-sam/build/template.yaml
+
+( cd src/Function && make )
+
+rm -rf .aws-sam/build/src/Function
 cp -r src/Function .aws-sam/build/src/Function
